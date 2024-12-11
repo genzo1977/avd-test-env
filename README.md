@@ -10,9 +10,11 @@ https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure
 4. Clone this repo:
 
 `git clone https://github.com/genzo1977/avd-test-env.git`
+
 5. Change directory:
 
 `cd .\avd-test-env\`
+
 6. Log into Azure:
 
 `az login`
