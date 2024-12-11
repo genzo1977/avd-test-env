@@ -7,32 +7,13 @@ To create a remote backend for Terraform in Azure, you can use Azure Storage to 
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
 3. Authenticate via Azure CLI
 
-`az login --tenant xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --verbose`
-
-e.g.
-
-`az login --tenant 4d4dcd44-f444-4444-b444-a44444ca4ced --verbose`
-
-5. Restart VS Code.
-6. If you get ` Error: Output refers to sensitive values`
-change 
-`sensitive = false`
-to
-`sensitive = true`
-
-```
-# Storage account access key
-output "storage_account_primary_access_key" {
-  value     = azurerm_storage_account.storage.primary_access_key
-  sensitive = true
-}
-```
-
+`az login`
 
 ### Steps to Initialize and Apply:
 1. Run `terraform init` to initialize the backend.
-2. Run `terraform apply` to apply the infrastructure and store the state remotely.
-3. Update Terraform provider block in your architecture directory with the below
+2. Run `terraform plan` to see what you are about to apply
+3. Run `terraform apply` to apply the infrastructure and store the state remotely.
+4. Update Terraform provider block in your architecture directory with the below
 ```
   backend "azurerm" {
     resource_group_name  = "your-resource-group"
